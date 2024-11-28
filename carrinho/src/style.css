@@ -1,0 +1,46 @@
+
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    gap: 20px;
+}
+section#cart{
+    background-color: blue;
+    width: 35%;
+}
+
+section#products{
+    background-color: green;
+    width: 65%;
+}
+
+section#products ul{
+    list-style: none;
+    padding: 0 20px;
+}
+
+section#products ul>li{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+
+section#products ul>li div{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.add_to_cart{
+    width: 100px;
+    height: 100%;
+}
