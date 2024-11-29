@@ -57,7 +57,7 @@ function adicionarCarrinho(e){
         cartTable.appendChild(tfoot);
 
         let removeAllBtn = document.createElement('button');
-        removeAllBtn.textContent = 'Remover tudo';
+        removeAllBtn.textContent = 'Esvaziar carrinho';
         removeAllBtn.id = 'cart_remove_all';
         cartContent.appendChild(removeAllBtn);
         removeAllBtn.addEventListener('click',removerTudo);

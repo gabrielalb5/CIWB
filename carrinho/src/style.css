@@ -135,3 +135,17 @@ header>img{
     height: 80px;
     margin: 0 0 10px 30px;
 }
+
+@media (max-width: 900px) {
+    main, #container, header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    section#products, section#cart{
+        width: 90%;
+    }
+    
+}
