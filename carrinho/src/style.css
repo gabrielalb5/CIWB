@@ -1,5 +1,8 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    background-color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+}
 main{
     display: flex;
     align-items: center;
@@ -13,13 +16,19 @@ main{
     gap: 20px;
 }
 section#cart{
-    background-color: blue;
-    width: 35%;
+    background-color: white;
+    border-radius: 10px;
+    width: 45%;
+}
+
+#cart_products, h2{
+    margin: 30px;
 }
 
 section#products{
-    background-color: green;
-    width: 65%;
+    background-color: white;
+    border-radius: 10px;
+    width: 55%;
 }
 
 section#products ul{
@@ -28,7 +37,6 @@ section#products ul{
 }
 
 section#products ul>li{
-    background-color: red;
     display: flex;
     justify-content: space-between;
     margin: 0 0 10px 0;
@@ -42,5 +50,88 @@ section#products ul>li div{
 
 .add_to_cart{
     width: 100px;
-    height: 100%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+    background-color: #76b5c5;
+}
+
+.add_to_cart:hover{
+    opacity: 70%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-remove{
+    border: none;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.product img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+table, td{
+    border: none;
+    border-collapse: collapse;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+td{
+    padding: 10px;
+}
+
+tfoot{
+    font-weight: bold;
+    text-align: center;
+}
+
+#cart_products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cart_remove_all{
+    margin: 20px 0 0 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    padding: 15px;
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#cart_remove_all:hover, .btn-remove:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+header>img{
+    height: 80px;
+    margin: 0 0 10px 30px;
 }
