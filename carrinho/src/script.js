@@ -1,7 +1,7 @@
-let conteudoCarrinho = document.querySelector('#cart_products');
+let cartContent = document.querySelector('#cart_products');
 
-if (conteudoCarrinho.children.length == 0) {
-    conteudoCarrinho.innerHTML = '<p>Carrinho vazio</p>';
+if (cartContent.children.length == 0) {
+    cartContent.innerHTML = '<p>Carrinho vazio</p>';
 }
 
 let addBtns = document.querySelectorAll('.add_to_cart');
@@ -17,32 +17,44 @@ function adicionarCarrinho(e){
     let productName = h3.textContent;
     let productPrice = p.textContent;
     
-    if (conteudoCarrinho.innerHTML === '<p>Carrinho vazio</p>') {
-        conteudoCarrinho.innerHTML = '';
-        let tabelaCarrinho = document.createElement('table');
-        conteudoCarrinho.appendChild(tabelaCarrinho);
+    if(cartContent.innerHTML === '<p>Carrinho vazio</p>') {
+        cartContent.innerHTML = '';
+        let cartTable = document.createElement('table');
+        cartContent.appendChild(cartTable);
         let tbody = document.createElement('tbody');
-        tabelaCarrinho.appendChild(tbody);
+        cartTable.appendChild(tbody);
+        let tfoot = document.createElement('tfoot');
+        tfoot.innerHTML = `<tr>
+                            <td>Subtotal:</td>
+                            <td>${productPrice}</td>
+                            </tr>`;
+        cartTable.appendChild(tfoot);
     }
 
-    let tbody = conteudoCarrinho.querySelector('tbody');
+    let tbody = cartContent.querySelector('tbody');
     let items = tbody.querySelectorAll('tr');
-    let noCarrinho = false;
+    let onCart = false;
+
 
     for(let item of items){
-        console.log(item);
-        if(productName == (item.querySelector('td:nth-child(1)')).textContent){
-            noCarrinho = true;
+        let itemName = (item.querySelector('td:nth-child(1)')).textContent;
+
+        if(productName == itemName){
+            onCart = true;
+            let quantityInput = item.querySelector('td:nth-child(3) input')
+            if(quantityInput.value>=99){
+                quantityInput.value = 99;
+            }else{
+                quantityInput.value = parseInt(quantityInput.value, 10) + 1;
+            }
         }
     }
     
-    if(noCarrinho){
-        console.log("O item já está no carrinho");
-    }else{
+    if(!onCart){
         let tr = document.createElement('tr');
         tr.innerHTML = `<td>${productName}</td>
                         <td>${productPrice}</td>
-                        <td></td>
+                        <td><input type="number" value="1" name="${productName}qtd" step="1" min="1" max="99"></td>
                         <td>Remover</td>`;
         tbody.appendChild(tr);
     }
