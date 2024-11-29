@@ -27,21 +27,23 @@ function adicionarCarrinho(e){
 
     let tbody = conteudoCarrinho.querySelector('tbody');
     let items = tbody.querySelectorAll('tr');
+    let noCarrinho = false;
 
     for(let item of items){
         console.log(item);
-        /*if(productName == item.querySelector('')){
-
-        }*/
+        if(productName == (item.querySelector('td:nth-child(1)')).textContent){
+            noCarrinho = true;
+        }
     }
     
-
-    let tr = document.createElement('tr');
-    tr.innerHTML = `<td>${productName}</td>
-                    <td>${productPrice}</td>
-                    <td></td>
-                    <td>Remover</td>`;
-    tbody.appendChild(tr);
-
-    console.log(productName);
+    if(noCarrinho){
+        console.log("O item já está no carrinho");
+    }else{
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${productName}</td>
+                        <td>${productPrice}</td>
+                        <td></td>
+                        <td>Remover</td>`;
+        tbody.appendChild(tr);
+    }
 }
