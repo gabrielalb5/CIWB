@@ -9,6 +9,11 @@ for(let btn of addBtns){
     btn.addEventListener('click',adicionarCarrinho);
 }
 
+let quantityInputs = document.querySelectorAll('input');
+for(let input of quantityInputs){
+    input.addEventListener('change',calcularTotal);
+}
+
 function adicionarCarrinho(e){
     let li = e.target.closest('li');
     let h3 = li.querySelector('h3');
@@ -57,5 +62,26 @@ function adicionarCarrinho(e){
                         <td><input type="number" value="1" name="${productName}qtd" step="1" min="1" max="99"></td>
                         <td>Remover</td>`;
         tbody.appendChild(tr);
+
+        let quantityInput = tr.querySelector('input');
+        quantityInput.addEventListener('change', calcularTotal);
     }
+
+    calcularTotal();
+}
+
+function calcularTotal(){
+    let tbody = cartContent.querySelector('tbody');
+    let items = tbody.querySelectorAll('tr');
+    let tfoot = cartContent.querySelector('tfoot');
+
+    let total = 0;
+
+    for(let item of items){
+        let priceCell = (parseFloat(item.querySelector('td:nth-child(2)').textContent.replace('R$', '').replace(',', '.'))).toFixed(2);
+        let quantityCell = parseInt(item.querySelector('td:nth-child(3) input').value, 10);
+        total += priceCell*quantityCell;
+    }
+
+    tfoot.querySelector('td:nth-child(2)').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
