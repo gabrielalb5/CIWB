@@ -1,14 +1,17 @@
 let cartContent = document.querySelector('#cart_products');
-let conteudoCarrinho = localStorage.getItem('conteudoCarrinho');
 
 document.addEventListener('DOMContentLoaded', carregarCarrinho);
 
 function carregarCarrinho(){
-    if(cartContent.children.length == 0){
-        cartContent.innerHTML = conteudoCarrinho;
-    }else{
+    conteudoCarrinho = localStorage.getItem('conteudoCarrinho');
+    
+    if (!conteudoCarrinho || conteudoCarrinho === '') {
         cartContent.innerHTML = '<p>Carrinho vazio</p>';
+        localStorage.setItem('conteudoCarrinho', cartContent.innerHTML);
+    } else {
+        cartContent.innerHTML = conteudoCarrinho;
     }
+
     let removeBtns = document.querySelectorAll('.btn-remove');
     for (let btn of removeBtns) {
         btn.addEventListener('click', remover);
