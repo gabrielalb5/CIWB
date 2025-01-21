@@ -1,0 +1,58 @@
+#clima{
+    display: none;
+}
+#clima.show{
+    display: block;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+#alert{
+    text-align: center;
+}
+form{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+#cidade_bandeira{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.box{
+    padding: 20px 30px;
+}
+#outras_infos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+.info div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.info{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+#temp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
