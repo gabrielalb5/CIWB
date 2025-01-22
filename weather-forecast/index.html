@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="icon" href="src/img/icon.png" type="image/x-icon">
     <script src="src/js/script.js" defer></script>
-    <title>Clima</title>
+    <title>Clima atual</title>
 </head>
 <body>
     <main>
+        <h1 class="title has-text-centered has-text-primary">Clima atual</h1>
         <form id="form">
             <input type="search" name="cidade" id="cidade" placeholder="Busque uma cidade" class="input is-normal">
             <button type="submit" class="button is-primary has-text-white is-medium"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -20,7 +21,7 @@
 
         <section id="clima" class="box">
             <div id="cidade_bandeira">
-                <h1 id="titulo" class="title mb-0"></h1>
+                <h2 id="titulo" class="title mb-0"></h2>
                 <img src="" alt="" id="bandeira" class="mt-3 mb-0">
             </div>
             <div id="infos">

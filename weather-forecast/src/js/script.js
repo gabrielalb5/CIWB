@@ -8,7 +8,7 @@ document.querySelector('#form').addEventListener('submit', async (event) => {
         return showAlert('Você precisa digitar uma cidade');
     }
 
-    const key = '8a60b2de14f7a17c7a11706b2cfcd87c';
+    const key = 'ed9deba7a61725fbea194773aeaf08fa';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cidade)}&appid=${key}&units=metric&lang=pt_br`;
 
     const results = await fetch(apiUrl);
@@ -39,10 +39,12 @@ function showInfo(json){
 
     document.querySelector('#clima').classList.add('show');
     document.querySelector('#titulo').innerHTML = `<i class="fa-solid fa-location-dot has-text-primary"></i> ${json.city}`;
-    document.querySelector('#bandeira').setAttribute('src',`https://flagsapi.com/${json.country}/flat/32.png`)
+    document.querySelector('#bandeira').setAttribute('src',`https://flagsapi.com/${json.country}/flat/32.png`);
+    document.querySelector('#bandeira').setAttribute('alt', `${json.country}`);
     document.querySelector('#temp_atual').innerHTML = `${json.temp.toFixed(1).toString().replace('.',',')} °C`;
     document.querySelector('#temp_descricao').innerHTML = `${json.description.charAt(0).toUpperCase()}${json.description.slice(1)}`;
     document.querySelector('#temp_img').setAttribute('src',` https://openweathermap.org/img/wn/${json.icon}@2x.png`);
+    document.querySelector('#temp_img').setAttribute('alt', `${json.description}`);
 
     document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.',',')} °C`;
     document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.',',')} °C`;
