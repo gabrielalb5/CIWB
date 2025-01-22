@@ -39,12 +39,15 @@ function showInfo(json){
 
     document.querySelector('#clima').classList.add('show');
     document.querySelector('#titulo').innerHTML = `<i class="fa-solid fa-location-dot has-text-primary"></i> ${json.city}`;
-    document.querySelector('#bandeira').setAttribute('src',`https://flagsapi.com/${json.country}/flat/32.png`);
-    document.querySelector('#bandeira').setAttribute('alt', `${json.country}`);
+    const bandeira = document.querySelector('#bandeira');
+    bandeira.setAttribute('src',`https://flagsapi.com/${json.country}/flat/32.png`);
+    bandeira.setAttribute('alt', `${json.country}`);
+
+    const imagem = document.querySelector('#temp_img');
+    imagem.setAttribute('src',` https://openweathermap.org/img/wn/${json.icon}@2x.png`);
+    imagem.setAttribute('alt', `${json.description}`);
     document.querySelector('#temp_atual').innerHTML = `${json.temp.toFixed(1).toString().replace('.',',')} °C`;
     document.querySelector('#temp_descricao').innerHTML = `${json.description.charAt(0).toUpperCase()}${json.description.slice(1)}`;
-    document.querySelector('#temp_img').setAttribute('src',` https://openweathermap.org/img/wn/${json.icon}@2x.png`);
-    document.querySelector('#temp_img').setAttribute('alt', `${json.description}`);
 
     document.querySelector('#temp_max').innerHTML = `${json.tempMax.toFixed(1).toString().replace('.',',')} °C`;
     document.querySelector('#temp_min').innerHTML = `${json.tempMin.toFixed(1).toString().replace('.',',')} °C`;
