@@ -9,4 +9,4 @@ Este projeto simula um sistema de compras online com funcionalidades interativas
 ## 🌥️ Informações climáticas por cidade
 Acesse clicando <a href="https://gabrielalb5.github.io/CIWB/weather-forecast/">aqui</a>
 
-Este projeto simula um sistema de previsão do tempo que consome a API OpenWeather para obter informações climáticas de cidades em tempo real. O sistema permite que o usuário pesquise por uma cidade e visualize dados detalhados do clima, como temperatura (atual, máxima e mínima), umidade, e velocidade do vento.
+Este projeto simula um sistema de previsão do tempo que consome a API OpenWeather para obter informações climáticas de cidades em tempo real. O sistema permite que o usuário pesquise por uma cidade e visualize dados detalhados do clima, como temperatura (atual, máxima e mínima), umidade, e velocidade do vento. A interface dessa aplicação também utiliza o framework CSS Bulma.
